@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title>Mein erstes Java-Script Programm</title>
+    <style>
+     
+    </style>
+    <script>
+      let rocket = {
+         x: 100,
+         y: 200,
+         width: 100,
+         height: 80,
+         src: 'img/rocket.png'
+
+      }
+
+      let ufo = {
+         x: 500,
+         y: 200,
+         width: 100,
+         height: 40,
+         src: 'img/ufo.png'
+      }
+
+      let KEY_SPACE = false; //Space == Wert 32
+      let KEY_UP = false; //Oben == Wert 38
+      let KEY_DOWN = false; //Unten == Wert 40
+      let canvas = document.getElementById('canvas'); //dadurch kann das HTML Canvas Element in Javascript bearbeitet werden
+
+      document.onkeydown =function(e) {
+         if (e.keyCode == 32) {
+            KEY_SPACE = true; //Leertaste gedrückt
+         }
+
+         if (e.keyCode == 38) {
+            KEY_UP = true; //Nach oben gedrückt
+         }
+
+         if (e.keyCode == 40) {
+            KEY_DOWN = true; //Nach unten gedrückt
+         }
+      }
+      
+      document.onkeyup =function(e) {
+         if (e.keyCode == 32) {
+            KEY_SPACE = false; //Leertaste losgelassen
+         }
+
+         if (e.keyCode == 38) {
+            KEY_UP = false; //Oben losgelassen
+         }
+
+         if (e.keyCode == 40) {
+            KEY_DOWN = false; //unten losgelassen
+         }
+      }
+      function StartGame(){ 
+         draw()
+
+      }
+      function draw() {
+
+         requestAnimationFrame(draw);
+      }
+
+
+    </script>
+    
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+         <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title" style="padding-left: 750px;">Portfolio Webseite</span>
+         </div>
+      </header>
+            <div class="mdl-layout__drawer">
+               <span class="mdl-layout-title">To-do Liste</span>
+               <nav class="mdl-navigation">
+                  <a class="mdl-navigation__link" href="">Link</a>
+                  <a class="mdl-navigation__link" href="">Link</a>
+                  <a class="mdl-navigation__link" href="">Link</a>
+                  <a class="mdl-navigation__link" href="">Link</a>
+               </nav>
+          </div>
+        <main onload="StartGame()"> <!-- wird ausgeführt sobald -->
+          <canvas id="canvas" width="720px" height="480px" style="background-color: black;">
+
+          </canvas>
+          
+        </main>
+      </div>
+  </body>
+
+</html>
